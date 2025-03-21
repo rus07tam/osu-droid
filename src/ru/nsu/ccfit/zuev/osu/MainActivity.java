@@ -42,7 +42,6 @@ import com.edlplan.ui.ActivityOverlay;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.reco1l.ibancho.LobbyAPI;
-import com.reco1l.osu.AccessibilityDetector;
 import com.reco1l.osu.DifficultyCalculationManager;
 import com.reco1l.osu.data.BeatmapInfo;
 import com.reco1l.osu.Execution;
@@ -325,7 +324,6 @@ public class MainActivity extends BaseGameActivity implements
                         }
                     }
 
-                    AccessibilityDetector.check(MainActivity.this);
                     BeatmapDifficultyCalculator.invalidateExpiredCache();
                 }, 0, 100, TimeUnit.MILLISECONDS);
 
@@ -719,9 +717,6 @@ public class MainActivity extends BaseGameActivity implements
         if (this.mEngine == null) {
             return false;
         }
-
-        if (AccessibilityDetector.isIllegalServiceDetected())
-            return false;
 
         if (event.getAction() != KeyEvent.ACTION_DOWN) {
             return super.onKeyDown(keyCode, event);
