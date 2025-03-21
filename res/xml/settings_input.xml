@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/opt_category_playfield">
+
+        <SeekBarPreference
+            android:defaultValue="100"
+            android:key="playfieldSize"
+            android:max="100"
+            android:summary="@string/opt_setplayfield_summary"
+            android:title="@string/opt_setplayfield_title"
+            app:min="50"
+            app:showSeekBarValue="true" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="shrinkPlayfieldDownwards"
+            android:summary="@string/opt_shrink_playfield_downwards_summary"
+            android:title="@string/opt_shrink_playfield_downwards_title" />
+
+        <Preference
+            android:key="block_areas"
+            android:title="@string/block_area_preference_title"
+            android:summary="@string/block_area_preference_summary"
+            app:layout="@layout/settings_preference_bottom" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/opt_category_gameplay">
+
+        <SeekBarPreference
+            android:defaultValue="300"
+            android:key="back_button_press_time"
+            android:summary="@string/opt_backButtonPressTime_summary"
+            android:title="@string/opt_backButtonPressTime_title"
+            app:min="0"
+            android:max="300"
+            app:showSeekBarValue="true" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="removeSliderLock"
+            android:summary="@string/opt_remove_sliderlock_spinnerlock_summary"
+            android:title="@string/opt_remove_sliderlock_spinnerlock_title"
+            app:layout="@layout/settings_preference_checkbox_bottom"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Vibration">
+
+        <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="vibrationCircle"
+                android:summary=""
+                android:title="Circle"/>
+        <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="vibrationSlider"
+                android:summary=""
+                android:title="Slider"/>
+        <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="vibrationSpinner"
+                android:summary=""
+                android:title="Spinner"/>
+
+        <SeekBarPreference
+                android:defaultValue="127"
+                android:key="seekBarVibrateIntensity"
+                android:title="@string/opt_seekBarVibrateIntensity_title"
+                android:summary="@string/opt_seekBarVibrateIntensity_summary"
+                android:min="1"
+                android:max="255"
+                app:showSeekBarValue="true"
+                app:layout="@layout/settings_preference_seekbar_bottom"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/opt_category_synchronization">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="fixFrameOffset"
+            android:summary="@string/opt_fix_frame_offset_summary"
+            android:title="@string/opt_fix_frame_offset_title"
+            app:layout="@layout/settings_preference_checkbox_bottom" />
+
+    </PreferenceCategory>
+
+
+</androidx.preference.PreferenceScreen>
