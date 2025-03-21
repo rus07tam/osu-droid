@@ -195,7 +195,7 @@ public class MainScene implements IUpdateHandler {
                     new MessageDialog()
                         .setTitle("About")
                         .setMessage(
-                                "<h1>osu!droid</h1>\n" +
+                                "<h1>osu!droid (rus07tam fork)</h1>\n" +
                                 "<h5>Version " + BuildConfig.VERSION_NAME + "</h5>\n" +
                                 "<p>Made by osu!droid team<br>osu! is © peppy 2007-2025</p>\n" +
                                 "<br>\n" +
