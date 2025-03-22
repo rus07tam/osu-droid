@@ -39,8 +39,6 @@ import androidx.core.content.PermissionChecker;
 import androidx.preference.PreferenceManager;
 
 import com.edlplan.ui.ActivityOverlay;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.reco1l.ibancho.LobbyAPI;
 import com.reco1l.osu.DifficultyCalculationManager;
 import com.reco1l.osu.data.BeatmapInfo;
@@ -98,8 +96,6 @@ public class MainActivity extends BaseGameActivity implements
     private String beatmapToAdd = null;
     private SaveServiceObject saveServiceObject;
     private final Handler handler = new Handler(Looper.getMainLooper());
-    private FirebaseAnalytics analytics;
-    private FirebaseCrashlytics crashlytics;
     private boolean willReplay = false;
     private static boolean activityVisible = true;
     private static final ScheduledExecutorService scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
@@ -114,8 +110,6 @@ public class MainActivity extends BaseGameActivity implements
         if (!checkPermissions()) {
             return null;
         }
-        analytics = FirebaseAnalytics.getInstance(this);
-        crashlytics = FirebaseCrashlytics.getInstance();
         Config.loadConfig(this);
         initialGameDirectory();
         //Debug.setDebugLevel(Debug.DebugLevel.NONE);
@@ -295,7 +289,6 @@ public class MainActivity extends BaseGameActivity implements
 
         Execution.async(() -> {
             GlobalManager.getInstance().init();
-            analytics.logEvent(FirebaseAnalytics.Event.APP_OPEN, null);
             GlobalManager.getInstance().setLoadingProgress(50);
             checkNewSkins();
             Config.loadSkins();
@@ -519,10 +512,6 @@ public class MainActivity extends BaseGameActivity implements
 
     public Handler getHandler() {
         return handler;
-    }
-
-    public FirebaseAnalytics getAnalytics() {
-        return analytics;
     }
 
     public PowerManager.WakeLock getWakeLock() {
